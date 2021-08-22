@@ -31,3 +31,20 @@ This dataset contains 100,000 images of 9 different types of colorectal tissue. 
 
 The images from the downloaded dataset were previously normalized at a standard set image size (224,224) and pre-stained to bring out different features in the images. [See this link to learn more about staining.](https://serc.carleton.edu/microbelife/research_methods/microscopy/index.html#:~:text=Cell%20staining%20is%20a%20technique,wall%2C%20or%20the%20entire%20cell.) 
 
+**Before running this notebook**
+
+Please make sure to note the following prior to running the notebook:
+1. The dataset was downloaded and uploaded to google drive prior to running preprocessing and models
+  - In order to run the model smoothly and as is in this notebook, please create a subdirectory in MyDrive named colon_dataset. The dataset `NCT-CRC-HE-100K` will then be added to the newly created subdirectory which contains the NORM and TUM subdirectories we need.
+  - Overall our path should look like the following:
+    - `/content/drive/MyDrive/colon_dataset/NCT-CRC-HE-100K/TUM`
+2. Our images are in `TIF` format, a format that is very resource intensive for our model's and can hinder performance, therefore `tif_to_jpeg` function was created. Make sure to run this function to convert our images into jpeg format prior to running our models.
+
+### Pre-Modeling ###
+
+Before the modeling process I made sure to randomly undersample to prevent a class imbalance
+
+
+# Citation #
+
+Kather, Jakob Nikolas, Halama, Niels, & Marx, Alexander. (2018). 100,000 histological images of human colorectal cancer and healthy tissue (v0.1) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.1214456
