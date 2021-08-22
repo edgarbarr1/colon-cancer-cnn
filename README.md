@@ -33,6 +33,8 @@ The images from the downloaded dataset were previously normalized at a standard 
 
 **Before running this notebook**
 
+_**Due to the amount of images and the large dataset, it is highly encouraged to run this notebook in Google Colab**_
+
 Please make sure to note the following prior to running the notebook:
 1. The dataset was downloaded and uploaded to google drive prior to running preprocessing and models
   - In order to run the model smoothly and as is in this notebook, please create a subdirectory in MyDrive named colon_dataset. The dataset `NCT-CRC-HE-100K` will then be added to the newly created subdirectory which contains the NORM and TUM subdirectories we need.
@@ -42,7 +44,20 @@ Please make sure to note the following prior to running the notebook:
 
 ### Pre-Modeling ###
 
-Before the modeling process I made sure to randomly undersample to prevent a class imbalance
+Before the modeling process I made sure to randomly undersample to prevent a class imbalance. The 8000 images for each class was selected for our training data, 400 images for each class was selected for our validation data, and 360 images for each class was selected as our holdout data. This brought our total number of images used in this dataset to 17,520 images used in total.
+
+The images had to be converted into jpeg format because the dataset is originally in tif format. This allowed the models to run more efficiently without wasting too much time and resources decoding the images.
+
+To prevent having memory (RAM) issues, we ran our model in Google Colab and we used an ImageDataGenerator alongside the `flow_from_directory` method so that the model itself would grab a batch of images from the specified directory, learn from it, then move on to the next batch. 
+
+### Modeling ###
+
+The modeling process consisted of creating a baseline model to get preliminary results and fine tune the model by changing some parameters and adding layers to the Convolutional Neural Network.
+
+The first three models severely underperformed, though that was to be expected since the models were very "shallow", did not go very deep, and trying to get a model to learn about tiny itricacies of cells, requires a much more deep Neural Network that can learn from tiny details.
+
+### Best Model ###
+
 
 
 # Citation #
