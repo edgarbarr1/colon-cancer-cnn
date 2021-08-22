@@ -58,12 +58,29 @@ Since our self-created models were not able to learn enough from our images, tra
 
 When using the model to predict the cell's classification, we found via a confusion matrix that out of the 17,520 images predicted only 1 was predicted incorrectly. This image, as seen below, was incorrectly classified as a CANCER cell when it was actually a NORMAL cell. This shows the sensitivity of the model to accurately predict cancer cells.
 
-**Training**             |  **Validation**
+**Training Confusion Matrix**             |  **Validation Confusion Matrix**
 :-------------------------:|:-------------------------:
 ![image](https://user-images.githubusercontent.com/70984749/130340701-c5054fa9-6502-4abb-be6b-8926a37d7ebc.png) |  ![image](https://user-images.githubusercontent.com/70984749/130340704-b7962f82-4db1-48cf-9ced-0b1c1711c367.png)
 
-In order to validate the results, we used some holdout data with an Image Generator with no data augmentation and with value normalization. The results we got came in par with our training and validation prediction with a bit higher margin of error.  
+In order to validate the results, we used some holdout data with an Image Generator with no data augmentation and with value normalization. 
 
+**Holdout Confusion Matrix** |
+:-----------------:|
+![image](https://user-images.githubusercontent.com/70984749/130364024-9864e94a-e5b8-4c19-b7a9-70258eb490b8.png)|
+
+The results we got came in par with our training and validation prediction with a bit higher margin of error. Out of the 720 images predicted 5 were predicted incorrectly. This would show the model correctly predicts 99.3% of the images in the correct classification. Additionally, it is important to point out that most of the incorrect predictions were for NORMAL cells that were classified as CANCER cells showing the sensitivity of the Recall metric which is of upmost importance in this classification problem. This would make our model be on par with doctor's determinations when giving a colon cancer diagnosis (1-2% margin of error).
+
+# Conclusion #
+
+The results form the model show the power that Machine Learning can have in a very convoluted field such as the medical field. Although, it is not expected that Machine Learning models such as this one will take over Doctors' jobs, this shows the incredible potential of becoming an essential tool in the medical field. 
+
+This model can become even more useful in places where the number of patients outnumber the number doctors available. Those places would probably be low income communities and, likely, communities with widespread obesity. However, this can only be determined with more reaserach
+
+### Next Steps ###
+
+As mentioned above, the key to determine where this model would be the most useful will be with a little more research of where in a Region is colon cancer affecting the population. Additionally, knowing the distributions and ratios of doctors to patients in a particular region, would further show where this model could be the most effective.
+
+Another step that we would like to explore would be to use different datasets to use in our model. In this particular dataset, we used a model that had a specific "preprocess" of staining the cells. It would be worth exploring how a model would perform without cells having gone through the staining process as the images in this dataset went through. This would most likely save even more resources for doctors and hospitals in low income regions and would make this model an even more valuable tool.
 
 # Citation #
 
