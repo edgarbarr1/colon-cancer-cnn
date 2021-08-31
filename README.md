@@ -4,7 +4,10 @@
 
 Colon cancer has been deemed the number 3 most common cancer in the world, according to the World Cancer Research Fund. Based on this statistic, it is not a surprise to know that more approximately 19 million colonoscopies are performed each year in the United States.
 
-Some experts believe that some of the main causes of this cancer is the Western food diet along with living a sedentary lifestyle as well as being obese. Unfortunately, according to the CDC, the US appears to be on an upward trend in obesity which in turn increases the likelihood of men and women to develop colorectal cancers.
+Some experts believe that some of the main causes of this cancer is the Western food diet along with living a sedentary lifestyle as well as being obese. Unfortunately, [according to the CDC](https://www.cdc.gov/nchs/products/databriefs/db360.htm), the US appears to be on an upward trend in obesity which in turn increases the likelihood of men and women to develop colorectal cancers.
+
+![image](https://user-images.githubusercontent.com/70984749/131425635-edd8270d-e639-4c13-bbe8-a5e4aa332748.png)
+
 
 Although the mortality rate for the most part appears to be relatively low (80% survival rate), it is important to note that like everything, there is always something to improve with either accurate test results, the time it takes to report those results and the resources available to compile said results.
 
