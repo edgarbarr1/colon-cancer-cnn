@@ -189,4 +189,12 @@ dependencies:
   - zipp=3.5.0=pyhd3eb1b0_0
   - zlib=1.2.11=h1de35cc_3
   - zstd=1.4.9=h322a384_0
+  - pip:
+    - imageio==2.9.0
+    - lime==0.2.0.1
+    - networkx==2.6.2
+    - pywavelets==1.1.1
+    - scikit-image==0.18.3
+    - tifffile==2021.8.30
+    - tqdm==4.62.2
 prefix: /Users/edgarbarron/opt/anaconda3/envs/capstone
