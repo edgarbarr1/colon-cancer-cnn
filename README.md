@@ -14,11 +14,11 @@ Although the mortality rate for the most part appears to be relatively low (80% 
 Currently, as per the American Cancer Society, it takes 2-3 days to report the findings of a colonoscopy biopsy.
 
 ### Objective ###
-This notebook has the objective of building a Convolutional Neural Network that can get close to the 1-2% accuracy that current medical tests have. We will also strive to have an efficient model that can give accurate results faster than 2-3 days and ideally within the time frame of "same-day" results.
+The objective of this project is to build a Convolutional Neural Network that can get close to the 1-2% accuracy that current medical tests have. We will also strive to have an efficient model that can give accurate results faster than 2-3 days and ideally within the time frame of "same-day" results.
 
 ### The Data ###
 
-The dataset in this notebook comes from a [Zenodo dataset](https://zenodo.org/record/1214456/files/NCT-CRC-HE-100K.zip?download=1) (cite below).
+The dataset used comes from a [Zenodo dataset](https://zenodo.org/record/1214456/files/NCT-CRC-HE-100K.zip?download=1) (cite below).
 
 **Note**: Clicking the link will 
 
@@ -30,11 +30,12 @@ This dataset contains 100,000 images of 9 different types of colorectal tissue. 
 
 The images from the downloaded dataset were previously normalized at a standard set image size (224,224) and pre-stained to bring out different features in the images. [See this link to learn more about staining.](https://serc.carleton.edu/microbelife/research_methods/microscopy/index.html#:~:text=Cell%20staining%20is%20a%20technique,wall%2C%20or%20the%20entire%20cell.) 
 
-**Before running this notebook**
+## Before running the notebook ##
 
 _**Due to the amount of images and the large dataset, it is highly encouraged to run this notebook in Google Colab**_
 
 Please make sure to note the following prior to running the notebook:
+
 1. The dataset was downloaded and uploaded to google drive prior to running preprocessing and models
   - In order to run the model smoothly and as is in this notebook, please create a subdirectory in MyDrive named colon_dataset. The dataset `NCT-CRC-HE-100K` will then be added to the newly created subdirectory which contains the NORM and TUM subdirectories we need.
   - Overall our path should look like the following:
@@ -57,9 +58,9 @@ The first three models severely underperformed, though that was to be expected s
 
 ### Best Model ###
 
-Since our self-created models were not able to learn enough from our images, transfer learning was used as the final approach to see if we can learn from our images. The model chosen was the ResNet50 model. Overall this model was able to learn plenty from the images. We got an overall Recall score of 100% and Precision score of 99%. 
+Since our self-created models were not able to learn enough from our images, transfer learning was used as the final approach to see if we can learn from our images. The model chosen was the ResNet50 model. Overall this model was able to learn plenty from the images. We got an overall Recall score of 99% and Precision score of 99%.
 
-When using the model to predict the cell's classification, we found via a confusion matrix that out of the 17,520 images predicted only 1 was predicted incorrectly. This image, as seen below, was incorrectly classified as a CANCER cell when it was actually a NORMAL cell. This shows the sensitivity of the model to accurately predict cancer cells.
+Below are the different cofusion matrices comparing the true label and the predictions given by the model. the confusion matrices are labeled based on the data subset used.
 
 **Training Confusion Matrix**             |  **Validation Confusion Matrix**
 :-------------------------:|:-------------------------:
@@ -75,9 +76,17 @@ The results we got came in par with our training and validation prediction with 
 
 # Conclusion #
 
-The results form the model show the power that Machine Learning can have in a very convoluted field such as the medical field. Although, it is not expected that Machine Learning models such as this one will take over Doctors' jobs, this shows the incredible potential of becoming an essential tool in the medical field. 
+Based on the restults we have gotten from our model predictions, it is clear that the best model that performed was the ResNet50.
 
-This model can become even more useful in places where the number of patients outnumber the number doctors available. Those places would probably be low income communities and, likely, communities with widespread obesity. However, this can only be determined with more reaserach
+With its 48 convolutional layers, it was able to learn from the images and correctly classify 99.2% of the images correctly.
+
+The results from the model show the power that Machine Learning can have in a very "convoluted" fiel such as the medical field. Although, it is not expected that Machine Learning Models like this one will take over Doctor's jobs, this shows the incredible potential of becoming an essential tool in the medical field.
+
+One of the potential use cases where this model could be used is in the prioritization of patients based on the model predictions. This would allow the most urgent cases needed for medical evaluation to be quickly given the priority and attention needed.
+
+Another potential use case is the monitored deployment of this model. That is, have a validation team that evaluates the predictions this model outputs and validate or invalidate said prediction. This would not only add a safety net in diagnosis but also allow the continued learning of the model as it keeps being trained with new data.
+
+However, this model is not without its potential risks that we need to take into consideration. For example, it was mentioned in the introduction, that the images in this particular dataset were pre-stained. As someone who has no prior medical experience, I cannot account for the different techniques of staining and different techniques of photographing said stains. The differences in techniques could potentially disrupt the model performance and therefore not give accurate predictions on new images.
 
 ### Next Steps ###
 
