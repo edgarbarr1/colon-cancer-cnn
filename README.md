@@ -11,7 +11,7 @@ Some experts believe that some of the main causes of this cancer is the Western 
 
 Although the mortality rate for the most part appears to be relatively low (80% survival rate), it is important to note that like everything, there is always something to improve with either accurate test results, the time it takes to report those results and the resources available to compile said results.
 
-Currently, as per the American Cancer Society, it takes 2-3 days to report the findings of a colonoscopy biopsy.
+Currently, as per the [American Cancer Society](https://www.cancer.org/treatment/understanding-your-diagnosis/tests/testing-biopsy-and-cytology-specimens-for-cancer/how-long-does-testing-take.html), it takes 2-3 days to report the findings of a colonoscopy biopsy.
 
 ### Objective ###
 The objective of this project is to build a Convolutional Neural Network that can get close to the 1-2% accuracy that current medical tests have. We will also strive to have an efficient model that can give accurate results faster than 2-3 days and ideally within the time frame of "same-day" results.
@@ -64,15 +64,44 @@ Below are the different cofusion matrices comparing the true label and the predi
 
 **Training Confusion Matrix**             |  **Validation Confusion Matrix**
 :-------------------------:|:-------------------------:
-![image](https://user-images.githubusercontent.com/70984749/130340701-c5054fa9-6502-4abb-be6b-8926a37d7ebc.png) |  ![image](https://user-images.githubusercontent.com/70984749/130340704-b7962f82-4db1-48cf-9ced-0b1c1711c367.png)
+![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/training_cf.png) |  ![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/validation_cf.png)
 
-In order to validate the results, we used some holdout data with an Image Generator with no data augmentation and with value normalization. 
+In order to validate the results, we used some holdout data with an Image Generator with no data augmentation and with value normalization. The dataset used in this case was the testing subset or subdirectory that we named as holdout_data.
 
 **Holdout Confusion Matrix** |
 :-----------------:|
-![image](https://user-images.githubusercontent.com/70984749/130364024-9864e94a-e5b8-4c19-b7a9-70258eb490b8.png)|
+![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/holdout_cf.png)|
 
-The results we got came in par with our training and validation prediction with a bit higher margin of error. Out of the 720 images predicted 5 were predicted incorrectly. This would show the model correctly predicts 99.3% of the images in the correct classification. Additionally, it is important to point out that most of the incorrect predictions were for NORMAL cells that were classified as CANCER cells showing the sensitivity of the Recall metric which is of upmost importance in this classification problem. This would make our model be on par with doctor's determinations when giving a colon cancer diagnosis (1-2% margin of error).
+The results we got came in par with our training and validation prediction with a bit higher margin of error. Out of the 720 images predicted 6 were predicted incorrectly. This would show the model correctly predicts 99.2% of the images in the correct classification. These are great results from images that our model has not seen or been trained on.
+
+## Computer Vision ##
+
+We can see the model in action by seeing the LIME package in action. Essentially, the LIME package visualizes what features is the model "looking" or concentrating at to make its category determination. Below are the results of the different images used to viasualize with this package.
+
+**Training Image NORMAL**             |  **Training Image Pros/Cons** | **Training Image Segmentation**
+:-------------------------:|:-------------------------:|:-------------------------:
+![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_1_normal.png) |  ![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_1_pros.png)|![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_1_segmented.png)
+
+**Training Image CANCER**             |  **Training Image Pros/Cons** | **Training Image Segmentation**
+:-------------------------:|:-------------------------:|:-------------------------:
+![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_2_normal.png) |  ![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_2_pros.png)|![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_2_segmented.png)
+
+**Validation Image NORMAL**             |  **Validation Image Pros/Cons** | **Validation Image Segmentation**
+:-------------------------:|:-------------------------:|:-------------------------:
+![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_3_normal.png) |  ![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_3_pros.png)|![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_3_segmented.png)
+
+**Validation Image CANCER**             |  **Validation Image Pros/Cons** | **Validation Image Segmentation**
+:-------------------------:|:-------------------------:|:-------------------------:
+![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_4_normal.png) |  ![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_4_pros.png)|![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_4_segmented.png)
+
+**Test Image NORMAL**             |  **Test Image Pros/Cons** | **Test Image Segmentation**
+:-------------------------:|:-------------------------:|:-------------------------:
+![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_5_normal.png) |  ![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_5_pros.png)|![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_5_segmented.png)
+
+**Test Image CANCER**             |  **Test Image Pros/Cons** | **Test Image Segmentation**
+:-------------------------:|:-------------------------:|:-------------------------:
+![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_6_normal.png) |  ![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_6_pros.png)|![image](https://github.com/edgarbarr1/colon-cancer-cnn/blob/main/images/image_6_segmented.png)
+
 
 # Conclusion #
 
